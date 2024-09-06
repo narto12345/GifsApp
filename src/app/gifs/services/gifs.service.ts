@@ -65,4 +65,8 @@ export class GifsService {
     localStorage.setItem("tags", JSON.stringify(this._tagsHistory));
   }
 
+  public get getLimit(): string {
+    return this.limit;
+  }
+
 }

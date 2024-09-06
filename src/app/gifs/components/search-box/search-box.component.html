@@ -6,7 +6,8 @@
   </div>
   <div class="col-2">
     <select id="combo-box" name="select" class="form-control  border border-dark" (change)="limitEvent($event)">
-      <option #limitTag *ngFor="let limit of this.searchLimit" [value]="limit">{{limit}}</option>
+      <option #limitTag *ngFor="let limit of this.searchLimit" [value]="limit"
+        [selected]="limit === this.selectedLimit">{{limit}}</option>
     </select>
   </div>
 </div>
