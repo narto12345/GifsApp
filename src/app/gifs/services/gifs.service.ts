@@ -6,7 +6,10 @@ import { GifsHttp } from '../interfaces/gifs-http';
 })
 export class GifsService {
 
-  private readonly _url: string = "https://api.giphy.com/v1/gifs/search?api_key=dUxGbvyE2fRw5wG7xKE5luLREui1cK4L&limit=10";
+  private readonly _url: string = "https://api.giphy.com/v1/gifs/search?api_key=dUxGbvyE2fRw5wG7xKE5luLREui1cK4L";
+  // private readonly _url: string = "https://api.giphy.com/v1/gifs/search";
+
+  private limit: string = "5";
 
   // LocalStorage
   private _tagsHistory: string[] = [];
@@ -39,12 +42,17 @@ export class GifsService {
 
   }
 
-  public async searchGifs(search: string): Promise<void> {
+  public async searchGifs(search: string, searchLimit?: string): Promise<void> {
 
-    let respuesta: GifsHttp = await fetch(`${this._url}&q=${search}`)
+    console.log(searchLimit);
+    if (searchLimit) this.limit = searchLimit;
+
+    let respuesta: GifsHttp = await fetch(`${this._url}&q=${search}&limit=${this.limit}`)
       .then(response => {
         return response.json()
       });
+
+    console.log(`Cantidad de gifs: ${respuesta.data.length ?? 0}`);
 
     this._gifs = respuesta;
   }
