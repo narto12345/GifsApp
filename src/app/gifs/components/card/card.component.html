@@ -8,4 +8,10 @@
       {{gifInternal.title || "No name"}}
     </p>
   </div>
+  <div class="card-body text-white">
+    <p class="card-text">
+      <button class="btn btn-light form-control"
+        (click)="downloadGif(gifInternal.images.downsized_medium.url, gifInternal.title)">Descargar</button>
+    </p>
+  </div>
 </div>

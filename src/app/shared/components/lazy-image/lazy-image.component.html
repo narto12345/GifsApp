@@ -1,8 +1,7 @@
-<div class="d-flex justify-content-center">
+<div id="gif-image" class="d-flex justify-content-center">
   <img [src]="this.url" alt="Alternative" class="card-img-top animate__animated animate__fadeIn" (load)="imageLoad()"
     [ngStyle]="{display: this.hasLoader ? '' : 'none'}">
 
   <img *ngIf="!this.hasLoader" src="assets/loader.svg" height="50" width="50" style="margin-top: 10px;" alt="loading"
     class="card-img-top">
-
 </div>
